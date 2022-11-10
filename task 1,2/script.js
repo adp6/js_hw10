@@ -10,8 +10,13 @@ window.onload = ()=>{
     inputs.splice(5,2);
     register.onclick = function(e) {
         let isValid = true;
+        let inputArr = [];
         for(let i = 0; i<inputs.length;i++){
-            if(inputs[0].value.length == 0 || inputs[1].value.length == 0 || inputs[2].value.length == 0 || inputs[3].value.length == 0 || inputs[4].value.length == 0){
+            inputArr.push(inputs[i].value)
+        }
+        console.log(inputArr)
+        for(let i = 0; i<inputArr.length;i++){
+            if(inputArr.some(elem => elem.length==0) == true){
                 isValid = false;
                 inputs[i].classList.add('error');
             }
